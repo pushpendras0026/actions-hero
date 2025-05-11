@@ -4,11 +4,15 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  issues: write  
+
 jobs:
   comment-with-action:
     runs-on: ubuntu-latest
+
     steps:
-      - name: "Dump GitHub context"
+      - name: Dump GitHub context
         run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
 
